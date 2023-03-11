@@ -5,31 +5,40 @@ let tour = 0;
 
 function gagne(){
   let victoire = 0;
+  
   for(let i=0;i<3;i++){
-    if (maGrille[i][0]==joueur && maGrille[i][0]==maGrille[i][1] && maGrille[i][2]==maGrille[i][1]){
+    //if (maGrille[i][0]==joueur && maGrille[i][0]==maGrille[i][1] && maGrille[i][2]==maGrille[i][1]){
+    if ((maGrille[i][0]==maGrille[i][1] && maGrille[i][1]==maGrille[i][2]) && (maGrille[i][0]!=0 && maGrille[i][1]!=0 && maGrille[i][2]!=0 )) {
+      document.getElementById((i+1)+"-1").style.color = "#7CAE7A"; 
+      document.getElementById((i+1)+"-2").style.color = "#7CAE7A"; 
+      document.getElementById((i+1)+"-3").style.color = "#7CAE7A"; 
       victoire=1;
     }
   }
   for(let j=0;j<3;j++){
-    if (maGrille[0][j]==joueur && maGrille[0][j]==maGrille[1][j] && maGrille[1][j]==maGrille[2][j]){
+    //if (maGrille[0][j]==joueur && maGrille[0][j]==maGrille[1][j] && maGrille[1][j]==maGrille[2][j]){
+    if ((maGrille[0][j]==maGrille[1][j] && maGrille[1][j]==maGrille[2][j]) && (maGrille[0][j]!=0 && maGrille[1][j]!=0 && maGrille[2][j]!=0)) {
+      document.getElementById("1-"+(j+1)).style.color = "#7CAE7A"; 
+      document.getElementById("2-"+(j+1)).style.color = "#7CAE7A"; 
+      document.getElementById("3-"+(j+1)).style.color = "#7CAE7A";
       victoire=1;
     }
   }
-  let diag1 = 1;
-  for (let k=0;k<3;k++){
-    if (maGrille[k][k]!=joueur){
-      diag1=0;
-    }
-  }
-  let diag2 = 1;
-  for (let k=0; k<3;k++){
-    if (maGrille[2-k][2-k]!=joueur){
-      diag2=0;
-    }
-  }
-  if (diag1==1 || diag2==1){
+
+  if (((maGrille[0][0]==maGrille[1][1]) && (maGrille[1][1]==maGrille[2][2])) && (maGrille[0][0]!=0 && maGrille[1][1]!=0 && maGrille[2][2]!=0)) {
+    document.getElementById("1-1").style.color = "#7CAE7A"; 
+    document.getElementById("2-2").style.color = "#7CAE7A"; 
+    document.getElementById("3-3").style.color = "#7CAE7A";
     victoire=1;
   }
+
+  if (((maGrille[2][0]==maGrille[1][1]) && (maGrille[1][1]==maGrille[0][2])) && (maGrille[2][0]!=0 && maGrille[1][1]!=0 && maGrille[0][2]!=0)) {
+    document.getElementById("1-3").style.color = "#7CAE7A"; 
+    document.getElementById("2-2").style.color = "#7CAE7A"; 
+    document.getElementById("3-1").style.color = "#7CAE7A";
+    victoire=1;
+  }
+  console.log(victoire); 
   if (victoire==1){
     document.getElementById("Statut").innerHTML=("Le joueur " + joueur +" a gagné !");
     console.log("Le joueur "+joueur+" a gagné !");
@@ -38,6 +47,11 @@ function gagne(){
   tour=tour+1;
   if (tour == 9 && victoire == 0){
     console.log("égalité bozo");
+    for (let m = 0;m<3;m++){
+      for (let n =0;n<3;n++){
+        document.getElementById((m+1)+"-"+(n+1)).style.color = "#DA5552"; 
+      }
+    }
     document.getElementById("Statut").innerHTML=("Aucun joueur n'a gagné, égalité !");
     fin = 1;
   }
