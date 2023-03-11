@@ -1,0 +1,54 @@
+body{
+  background-color: #708090;
+  text-align: center;
+}
+
+h1{
+  font-weight: bold;
+  font-family: sans-serif;
+  color: white;
+  font-size: 7vh; 
+}
+#tableau{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column; /*aligner les flex de haut en bas, par défaut de gauche à droite*/
+}
+
+#tableau th{
+  font-weight: bold;
+  font-size: 50px;
+  margin: 5px;
+  float:left;
+}
+
+#idbouton {
+  width: 17vh;
+  height: 5vh;
+  font-weight: bold;
+  font-size: 2vh;
+  font-family: sans-serif;
+  color : #708090;
+}
+
+#Statut{
+  width: 50vh;
+  height: 10vh;
+  margin-top: 4vh;
+
+  text-align: center;
+  font-size: 3vh;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+.bouton{
+  width : 10vh;
+  height : 10vh;
+  font-size: 7vh;
+  font-weight: bold;
+  color : #708090;
+}
